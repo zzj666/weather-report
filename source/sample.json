@@ -1,0 +1,390 @@
+stdClass Object ( 
+    [HeWeather data service 3.0] => Array (
+        [0] => stdClass Object ( 
+            [aqi] => stdClass Object ( 
+                    [city] => stdClass Object (
+                        [aqi] => 233 
+                        [co] => 1 
+                        [no2] => 38 
+                        [o3] => 38 
+                        [pm10] => 164 
+                        [pm25] => 182 
+                        [qlty] => 重度污染 
+                        [so2] => 11 
+                        )
+            )
+            [basic] => stdClass Object ( 
+                [city] => 合肥 
+                [cnty] => 中国 
+                [id] => CN101220101 
+                [lat] => 31.861000 
+                [lon] => 117.275000 
+                [update] => stdClass Object ( 
+                    [loc] => 2016-02-23 23:56 
+                    [utc] => 2016-02-23 15:56 
+                    )
+                ) 
+            [daily_forecast] => Array (
+                [0] => stdClass Object ( 
+                    [astro] => stdClass Object ( 
+                        [sr] => 06:45 
+                        [ss] => 18:03 
+                        ) 
+                    [cond] => stdClass Object ( 
+                        [code_d] => 101 
+                        [code_n] => 101 
+                        [txt_d] => 多云 
+                        [txt_n] => 多云 
+                    )
+                    [date] => 2016-02-23 
+                    [hum] => 49 
+                    [pcpn] => 0.0 
+                    [pop] => 47 
+                    [pres] => 1033 
+                    [tmp] => stdClass Object ( 
+                        [max] => 14 
+                        [min] => 2 
+                        ) 
+                    [vis] => 10 
+                    [wind] => stdClass Object ( 
+                        [deg] => 6 
+                        [dir] => 东北风 
+                        [sc] => 3-4 
+                        [spd] => 11 
+                        ) 
+                )
+                
+                [1] => stdClass Object ( 
+                    [astro] => stdClass Object ( 
+                        [sr] => 06:44 
+                        [ss] => 18:04 
+                        )
+                    [cond] => stdClass Object ( 
+                        [code_d] => 101 
+                        [code_n] => 100 
+                        [txt_d] => 多云 
+                        [txt_n] => 晴 
+                        ) 
+                    [date] => 2016-02-24 
+                    [hum] => 30 
+                    [pcpn] => 0.0 
+                    [pop] => 0 
+                    [pres] => 1036 
+                    [tmp] => stdClass Object ( 
+                        [max] => 10 
+                        [min] => 1 
+                        ) 
+                    [vis] => 10 
+                    [wind] => stdClass Object ( 
+                        [deg] => 121 
+                        [dir] => 东南风 
+                        [sc] => 3-4 
+                        [spd] => 15 
+                        ) 
+                    ) 
+                    
+                [2] => stdClass Object ( 
+                    [astro] => stdClass Object ( 
+                        [sr] => 06:43 
+                        [ss] => 18:04 
+                        ) 
+                    [cond] => stdClass Object ( 
+                        [code_d] => 101 
+                        [code_n] => 101 
+                        [txt_d] => 多云
+                        [txt_n] => 多云 
+                        ) 
+                    [date] => 2016-02-25 
+                    [hum] => 27 
+                    [pcpn] => 0.0 
+                    [pop] => 0 
+                    [pres] => 1033 
+                    [tmp] => stdClass Object ( 
+                        [max] => 14 
+                        [min] => 4 
+                        ) 
+                    [vis] => 10 
+                    [wind] => stdClass Object ( 
+                        [deg] => 273 
+                        [dir] => 南风 
+                        [sc] => 微风 
+                        [spd] => 9 
+                        ) 
+                    ) 
+                
+                [3] => stdClass Object ( 
+                    [astro] => stdClass Object ( 
+                        [sr] => 06:42 
+                        [ss] => 18:05 
+                        ) 
+                    [cond] => stdClass Object ( 
+                        [code_d] => 101 
+                        [code_n] => 100 
+                        [txt_d] => 多云 
+                        [txt_n] => 晴 
+                        ) 
+                    [date] => 2016-02-26 
+                    [hum] => 36 
+                    [pcpn] => 0.0 
+                    [pop] => 0 
+                    [pres] => 1032 
+                    [tmp] => stdClass Object ( 
+                        [max] => 16 
+                        [min] => 6 
+                        ) 
+                    [vis] => 10 
+                    [wind] => stdClass Object ( 
+                        [deg] => 159 
+                        [dir] => 南风 
+                        [sc] => 微风 
+                        [spd] => 10 
+                        ) 
+                    ) 
+                    
+                [4] => stdClass Object ( 
+                    [astro] => stdClass Object ( 
+                        [sr] => 06:40 
+                        [ss] => 18:06 
+                        ) 
+                    [cond] => stdClass Object ( 
+                        [code_d] => 104 
+                        [code_n] => 101 
+                        [txt_d] => 阴 
+                        [txt_n] => 多云 
+                        ) 
+                    [date] => 2016-02-27 
+                    [hum] => 24 
+                    [pcpn] => 0.0 
+                    [pop] => 0 
+                    [pres] => 1022 
+                    [tmp] => stdClass Object ( 
+                        [max] => 19 
+                        [min] => 8 
+                        ) 
+                    [vis] => 10 
+                    [wind] => stdClass Object ( 
+                        [deg] => 206 
+                        [dir] => 东北风 
+                        [sc] => 3-4 
+                        [spd] => 15 
+                        ) 
+                    ) 
+                    
+                [5] => stdClass Object ( 
+                    [astro] => stdClass Object ( 
+                        [sr] => 06:39 
+                        [ss] => 18:07 
+                        ) 
+                    [cond] => stdClass Object ( 
+                        [code_d] => 100 
+                        [code_n] => 100 
+                        [txt_d] => 晴 
+                        [txt_n] => 晴 
+                        ) 
+                    [date] => 2016-02-28 
+                    [hum] => 27 
+                    [pcpn] => 0.0 
+                    [pop] => 0 
+                    [pres] => 1030 
+                    [tmp] => stdClass Object ( 
+                        [max] => 13 
+                        [min] => 3 
+                        ) 
+                    [vis] => 10 
+                    [wind] => stdClass Object ( 
+                        [deg] => 330 
+                        [dir] => 南风 
+                        [sc] => 3-4 
+                        [spd] => 15 
+                        ) 
+                    ) 
+                    
+                [6] => stdClass Object ( 
+                    [astro] => stdClass Object ( 
+                        [sr] => 06:38 
+                        [ss] => 18:08 
+                        ) 
+                    [cond] => stdClass Object ( 
+                        [code_d] => 100 
+                        [code_n] => 100 
+                        [txt_d] => 晴 
+                        [txt_n] => 晴 
+                        ) 
+                    [date] => 2016-02-29 
+                    [hum] => 15 
+                    [pcpn] => 0.0 
+                    [pop] => 0 
+                    [pres] => 1028 
+                    [tmp] => stdClass Object ( 
+                        [max] => 15 
+                        [min] => 6 
+                        ) 
+                    [vis] => 10 
+                    [wind] => stdClass Object ( 
+                        [deg] => 211 
+                        [dir] => 南风 
+                        [sc] => 3-4 
+                        [spd] => 13 
+                        ) 
+                    ) 
+                ) 
+                
+            [hourly_forecast] => Array ( 
+                [0] => stdClass Object ( 
+                    [date] => 2016-02-24 01:00 
+                    [hum] => 74 
+                    [pop] => 0 
+                    [pres] => 1037 
+                    [tmp] => 6 
+                    [wind] => stdClass Object ( 
+                        [deg] => 61 
+                        [dir] => 东北风 
+                        [sc] => 微风 
+                        [spd] => 16 
+                        ) 
+                    ) 
+                [1] => stdClass Object ( 
+                    [date] => 2016-02-24 04:00 
+                    [hum] => 80 
+                    [pop] => 0 
+                    [pres] => 1037 
+                    [tmp] => 4 
+                    [wind] => stdClass Object ( 
+                        [deg] => 73 
+                        [dir] => 东北风
+                        [sc] => 微风 
+                        [spd] => 14 
+                        ) 
+                    ) 
+                [2] => stdClass Object ( 
+                    [date] => 2016-02-24 07:00 
+                    [hum] => 75 
+                    [pop] => 0 
+                    [pres] => 1038 
+                    [tmp] => 4 
+                    [wind] => stdClass Object ( 
+                        [deg] => 87 
+                        [dir] => 东风 
+                        [sc] => 微风 
+                        [spd] => 15 
+                        ) 
+                    ) 
+                [3] => stdClass Object ( 
+                    [date] => 2016-02-24 10:00 
+                    [hum] => 57 
+                    [pop] => 0 
+                    [pres] => 1039 
+                    [tmp] => 7 
+                    [wind] => stdClass Object ( 
+                        [deg] => 104 
+                        [dir] => 东南风 
+                        [sc] => 微风 
+                        [spd] => 14 
+                        ) 
+                    ) 
+                [4] => stdClass Object ( 
+                    [date] => 2016-02-24 13:00 
+                    [hum] => 41 
+                    [pop] => 0 
+                    [pres] => 1037 
+                    [tmp] => 10 
+                    [wind] => stdClass Object ( 
+                        [deg] => 115 
+                        [dir] => 东南风 
+                        [sc] => 微风 
+                        [spd] => 10 
+                        )
+                    ) 
+                [5] => stdClass Object ( 
+                    [date] => 2016-02-24 16:00 
+                    [hum] => 37 
+                    [pop] => 0 
+                    [pres] => 1035 
+                    [tmp] => 13 
+                    [wind] => stdClass Object ( 
+                        [deg] => 128 
+                        [dir] => 东南风 
+                        [sc] => 微风 
+                        [spd] => 10 
+                        ) 
+                    ) 
+                [6] => stdClass Object ( 
+                    [date] => 2016-02-24 19:00 
+                    [hum] => 45 
+                    [pop] => 0 
+                    [pres] => 1035 
+                    [tmp] => 11 
+                    [wind] => stdClass Object ( 
+                        [deg] => 128 
+                        [dir] => 东南风 
+                        [sc] => 微风 
+                        [spd] => 10 
+                        ) 
+                    ) 
+                [7] => stdClass Object ( 
+                    [date] => 2016-02-24 22:00 
+                    [hum] => 51 
+                    [pop] => 0 
+                    [pres] => 1036 
+                    [tmp] => 8 
+                    [wind] => stdClass Object ( 
+                        [deg] => 129 
+                        [dir] => 东南风 
+                        [sc] => 微风 
+                        [spd] => 10 
+                        ) 
+                    ) 
+                ) 
+                
+                [now] => stdClass Object ( 
+                    [cond] => stdClass Object ( 
+                        [code] => 101 
+                        [txt] => 多云 
+                        ) 
+                    [fl] => 2 
+                    [hum] => 65 
+                    [pcpn] => 0 
+                    [pres] => 1036 
+                    [tmp] => 6 
+                    [vis] => 3 
+                    [wind] => stdClass Object ( 
+                        [deg] => 60 
+                        [dir] => 东北风 
+                        [sc] => 4-5 
+                        [spd] => 17 
+                        ) 
+                    ) 
+                    [status] => ok 
+                    [suggestion] => stdClass Object ( 
+                        [comf] => stdClass Object ( 
+                            [brf] => 较舒适 
+                            [txt] => 白天天气晴好，早晚会感觉偏凉，午后舒适、宜人。 
+                            ) 
+                        [cw] => stdClass Object ( 
+                            [brf] => 较适宜 
+                            [txt] => 较适宜洗车，未来一天无雨，风力较小，擦洗一新的汽车至少能保持一天。 
+                            ) 
+                            [drsg] => stdClass Object ( 
+                                [brf] => 较冷 
+                                [txt] => 建议着厚外套加毛衣等服装。年老体弱者宜着大衣、呢外套加羊毛衫。 
+                                )
+                            [flu] => stdClass Object ( 
+                                [brf] => 较易发 
+                                [txt] => 昼夜温差较大，较易发生感冒，请适当增减衣服。体质较弱的朋友请注意防护。 
+                                ) 
+                            [sport] => stdClass Object ( 
+                                [brf] => 较适宜 
+                                [txt] => 天气较好，但考虑风力较强且气温较低，推荐您进行室内运动，若在户外运动注意防风并适当增减衣物。 
+                                ) 
+                                [trav] => stdClass Object ( 
+                                    [brf] => 适宜 
+                                    [txt] => 天气较好，温度适宜，但风稍微有点大。这样的天气适宜旅游，您可以尽情地享受大自然的无限风光。 
+                                    )
+                                [uv] => stdClass Object ( 
+                                    [brf] => 弱 
+                                    [txt] => 紫外线强度较弱，建议出门前涂擦SPF在12-15之间、PA+的防晒护肤品。 
+                                    ) 
+                                ) 
+                            ) 
+                        ) 
+                    ) 
