@@ -1,5 +1,4 @@
-#weatherSender
+# Weather Report WebApp
 
-项目开始的地方
-主要功能是从网上抓取天气预报，然后通过电子邮件发送到手机邮箱，这样手机邮箱就可以通过短信提醒的方式，发送到手机短信里面。实现天气预报的短信提醒。
-
+Get Weather Informations from web.
+With apis on Baidu.
