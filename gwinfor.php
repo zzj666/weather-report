@@ -1,61 +1,97 @@
 <?php
-    $ch = curl_init();
-    $citySet = 'hefei'; //预设天气预报地点，在这里.
-    $urlSet = 'http://apis.baidu.com/heweather/weather/free?city='; // + $wcity;
-    $url = $urlSet.$citySet ;
     
-    //print( $url ); 调试网址
+function show_weather(){
+
+    function weatherTxt($weatherType,$key,$location){
+        $weatherUrl='https://free-api.heweather.net/s6/weather/'.$weatherType.'?location='.$location.'&key='.$key;
+        $weatherContent = file_get_contents($weatherUrl);
+        return $weatherContent;
+    }
+
+    $key ="322389fe745246a88c9371a867475438";
+    $location = "合肥";
     
-    $header = array(
-        'apikey: a51c911b1e90125da234ef805dead41e',
-    );
-    // 添加apikey到header
-    curl_setopt($ch, CURLOPT_HTTPHEADER  , $header);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    // 执行HTTP请求
-    curl_setopt($ch , CURLOPT_URL , $url);
-    //curl_setopt($ch , CURLOPT_SSL_VERIFYPEER , false);
-    $res = curl_exec($ch);
-    //print $res;
+    // 分别获取 当前的天气、预报天气、当前空气质量信息
+    $nowWeather=weatherTxt('now',$key,$location);
+    $daysWeather=weatherTxt('forecast',$key,$location);
+    $lifeInfor=weatherTxt('lifestyle',$key,$location);
+    
+    // 调试信息显示
+    //echo $nowWeather;
+    //echo $daysWeather;
+    //echo $lifeInfor;
+    
+    // 解析Json数据
+    $nowObj  = json_decode($nowWeather);
+    $daysObj = json_decode($daysWeather);
+    $lifeObj = json_decode($lifeInfor);
+    
+    // 解析当前天气的 地点、更新时间
+    $weatherLoc = $nowObj->{'HeWeather6'}[0]->{'basic'}->{'location'};
+    $updateTime = $nowObj->{'HeWeather6'}[0]->{'update'}->{'loc'};
+    
+    // 解析当前 天气信息、温度、风向、风级
+    $now_cond_txt = $nowObj->{'HeWeather6'}[0]->{'now'}->{'cond_txt'};
+    $now_tmp      = $nowObj->{'HeWeather6'}[0]->{'now'}->{'tmp'};
+    $now_wind_dir = $nowObj->{'HeWeather6'}[0]->{'now'}->{'wind_dir'};
+    $now_wind_sc  = $nowObj->{'HeWeather6'}[0]->{'now'}->{'wind_sc'};
+    
+    // 解析当前空气质量
+    $now_qlty = $lifeObj->{'HeWeather6'}[0]->{'lifestyle'}[7]->{'brf'};
+
+    // 解析三天 天气信息、温度、风向、风级
+    $day0_date       = $daysObj->{'HeWeather6'}[0]->{'daily_forecast'}[0]->{'date'};
+    $day0_cond_txt_d = $daysObj->{'HeWeather6'}[0]->{'daily_forecast'}[0]->{'cond_txt_d'};
+    $day0_cond_txt_n = $daysObj->{'HeWeather6'}[0]->{'daily_forecast'}[0]->{'cond_txt_n'};
+    $day0_wind_dir   = $daysObj->{'HeWeather6'}[0]->{'daily_forecast'}[0]->{'wind_dir'};
+    $day0_wind_sc    = $daysObj->{'HeWeather6'}[0]->{'daily_forecast'}[0]->{'wind_sc'};
+    $day0_tmp_min    = $daysObj->{'HeWeather6'}[0]->{'daily_forecast'}[0]->{'tmp_min'};
+    $day0_tmp_max    = $daysObj->{'HeWeather6'}[0]->{'daily_forecast'}[0]->{'tmp_max'};
+    
+    $day1_date       = $daysObj->{'HeWeather6'}[0]->{'daily_forecast'}[1]->{'date'};
+    $day1_cond_txt_d = $daysObj->{'HeWeather6'}[0]->{'daily_forecast'}[1]->{'cond_txt_d'};
+    $day1_cond_txt_n = $daysObj->{'HeWeather6'}[0]->{'daily_forecast'}[1]->{'cond_txt_n'};
+    $day1_wind_dir   = $daysObj->{'HeWeather6'}[0]->{'daily_forecast'}[1]->{'wind_dir'};
+    $day1_wind_sc    = $daysObj->{'HeWeather6'}[0]->{'daily_forecast'}[1]->{'wind_sc'};
+    $day1_tmp_min    = $daysObj->{'HeWeather6'}[0]->{'daily_forecast'}[1]->{'tmp_min'};
+    $day1_tmp_max    = $daysObj->{'HeWeather6'}[0]->{'daily_forecast'}[1]->{'tmp_max'};
+    
+    $day2_date       = $daysObj->{'HeWeather6'}[0]->{'daily_forecast'}[2]->{'date'};
+    $day2_cond_txt_d = $daysObj->{'HeWeather6'}[0]->{'daily_forecast'}[2]->{'cond_txt_d'};
+    $day2_cond_txt_n = $daysObj->{'HeWeather6'}[0]->{'daily_forecast'}[2]->{'cond_txt_n'};
+    $day2_wind_dir   = $daysObj->{'HeWeather6'}[0]->{'daily_forecast'}[2]->{'wind_dir'};
+    $day2_wind_sc    = $daysObj->{'HeWeather6'}[0]->{'daily_forecast'}[2]->{'wind_sc'};
+    $day2_tmp_min    = $daysObj->{'HeWeather6'}[0]->{'daily_forecast'}[2]->{'tmp_min'};
+    $day2_tmp_max    = $daysObj->{'HeWeather6'}[0]->{'daily_forecast'}[2]->{'tmp_max'};
+    
+    // 拼接天气信息
+    $greetMsg  = $weatherLoc.'天气预报';
+    $updateMsg = '更新时间：'.$updateTime;
+    $nowMsg    = $weatherLoc.'当前：'.$now_cond_txt.'，'.$now_tmp.'℃，'.$now_wind_dir.$now_wind_sc.'级';
+    $qltyMsg   = '空气质量：'.$now_qlty; 
+    
+    $day0_txt  = '今天（'.$day0_date.'），'.$day0_cond_txt_d.'-'.$day0_cond_txt_n.'，'.$day0_wind_dir.$day0_wind_sc.'级，'.$day0_tmp_min.'-'.$day0_tmp_max.'℃。';
+    $day1_txt  = '明天（'.$day1_date.'），'.$day1_cond_txt_d.'-'.$day1_cond_txt_n.'，'.$day1_wind_dir.$day1_wind_sc.'级，'.$day1_tmp_min.'-'.$day1_tmp_max.'℃。';
+    $day2_txt  = '后天（'.$day2_date.'），'.$day2_cond_txt_d.'-'.$day2_cond_txt_n.'，'.$day2_wind_dir.$day2_wind_sc.'级，'.$day2_tmp_min.'-'.$day2_tmp_max.'℃。';
+    
+    // 画横线
+    function drawTxtLn($arg1, $arg2, $arg3){
+        $l1 = strlen($arg1);
+        $l2 = strlen($arg2);
+        $l3 = strlen($arg3);
+        $a  = array($l1, $l2, $l3);
+        $max= max($a);
+        for ($x=0; $x<$max; $x++){
+            echo '-';
+        }
         
-    $wobj = json_decode($res);
-    
-    //var_dump(json_decode($res,true));
-    //打印json的变量信息
-    
-    $wcity = $wobj->{'HeWeather data service 3.0'}[0]->{'basic'}->{'city'} ;
-    $updatetime = $wobj->{'HeWeather data service 3.0'}[0]->{'basic'}->{'update'}->{'loc'} ;
-    
-    // Weather Informations of Today
-    $qltyToday =  $wobj->{'HeWeather data service 3.0'}[0]->{'aqi'}->{'city'}->{'qlty'};
-    $dateToday =  $wobj->{'HeWeather data service 3.0'}[0]->{'daily_forecast'}[0]->{'date'} ;
-    $dayWeatherToday = $wobj->{'HeWeather data service 3.0'}[0]->{'daily_forecast'}[0]->{'cond'}->{'txt_d'} ;
-    $nightWeatherToday = $wobj->{'HeWeather data service 3.0'}[0]->{'daily_forecast'}[0]->{'cond'}->{'txt_n'} ;
-    $maxTempToday = $wobj->{'HeWeather data service 3.0'}[0]->{'daily_forecast'}[0]->{'tmp'}->{'max'} ;
-    $minTempToday = $wobj->{'HeWeather data service 3.0'}[0]->{'daily_forecast'}[0]->{'tmp'}->{'min'} ;
-    
-    // Weather Information of Tomorrow
-    $dateTomorrow =  $wobj->{'HeWeather data service 3.0'}[0]->{'daily_forecast'}[1]->{'date'} ;
-    $dayWeatherTomorrow = $wobj->{'HeWeather data service 3.0'}[0]->{'daily_forecast'}[1]->{'cond'}->{'txt_d'} ;
-    $nightWeatherTomorrow = $wobj->{'HeWeather data service 3.0'}[0]->{'daily_forecast'}[1]->{'cond'}->{'txt_n'} ;
-    $maxTempTomorrow = $wobj->{'HeWeather data service 3.0'}[0]->{'daily_forecast'}[1]->{'tmp'}->{'max'} ;
-    $minTempTomorrow = $wobj->{'HeWeather data service 3.0'}[0]->{'daily_forecast'}[1]->{'tmp'}->{'min'} ;
-    
-    // Weather Information of The Day After Tomorrow
-    $dateAfTomorrow =  $wobj->{'HeWeather data service 3.0'}[0]->{'daily_forecast'}[2]->{'date'} ;
-    $dayWeatherAfTomorrow = $wobj->{'HeWeather data service 3.0'}[0]->{'daily_forecast'}[2]->{'cond'}->{'txt_d'} ;
-    $nightWeatherAfTomorrow = $wobj->{'HeWeather data service 3.0'}[0]->{'daily_forecast'}[2]->{'cond'}->{'txt_n'} ;
-    $maxTempAfTomorrow = $wobj->{'HeWeather data service 3.0'}[0]->{'daily_forecast'}[2]->{'tmp'}->{'max'} ;
-    $minTempAfTomorrow = $wobj->{'HeWeather data service 3.0'}[0]->{'daily_forecast'}[2]->{'tmp'}->{'min'} ;
-    
-    // Now Let's Weather Report Now ! :)
-    $weatherToday = $wcity.'今天('.$dateToday.')'.$dayWeatherToday.'到'.$nightWeatherToday.','.$maxTempToday.'-'.$minTempToday.'°C,'.$qltyToday;  //
-    $weatherTomorrow = '明天('.$dateAfTomorrow.')'.$dayWeatherTomorrow.'到'.$nightWeatherTomorrow.','.$maxTempTomorrow.'-'.$minTempTomorrow.'°C,';
-    $weatherAfTomorrow = '后天('.$dateAfTomorrow.')'.$dayWeatherAfTomorrow.'到'.$nightWeatherAfTomorrow.','.$maxTempTomorrow.'-'.$minTempAfTomorrow.'°C';
-    
-    echo $updatetime.'更新:'.$weatherToday.$weatherTomorrow.$weatherAfTomorrow.'<br />' ;
+    }
 
-
-
-
+    drawTxtLn($updateMsg, $nowMsg, $qltyMsg);echo '<br />';    
+    echo $greetMsg.'<br />';
+    echo $updateMsg.'<br />'.$nowMsg.'<br />'.$qltyMsg.'<br />';
+    drawTxtLn($day0_txt, $day1_txt, $day2_txt);echo '<br />';
+    echo $day0_txt.'<br />'.$day1_txt.'<br />'.$day2_txt.'<br />';
+    drawTxtLn($day0_txt, $day1_txt, $day2_txt);
+}
 ?>
